@@ -8,8 +8,8 @@
   - High: 100XP
   - Medium: 20XP
   - Low: 2XP
-- Starts - November 15, 2023
-- Ends - November 22, 2023
+- Starts - November 09, 2023
+- Ends - November 15, 2023
 
 ## Stats
 
