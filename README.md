@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./images/boss-bridge.png" width="400" alt="puppy-raffle">
+<img src="https://github.com/Cyfrin/7-boss-bridge-audit/blob/main/images/boss-bridge.png" width="400" alt="puppy-raffle">
 <br/>
 
 ## Contest Details
