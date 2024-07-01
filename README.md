@@ -1,7 +1,5 @@
 # First Flight #4: Boss Bridge
 
-[//]: # (contest-details-open)
-
 # Contest Details
 
 ## Prize Pool
@@ -17,6 +15,8 @@
 
 - nSLOC: 99
 - Complexity Score: 106
+
+[//]: # (contest-details-open)
 
 # Boss Bridge
 
