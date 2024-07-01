@@ -1,8 +1,10 @@
-<p align="center">
-<img src="https://res.cloudinary.com/droqoz7lg/image/upload/ar_1:1,c_pad,g_center,w_1000/v1699263814/company/vlx4wck6o754kiufvl99.png" width="400" alt="puppy-raffle">
-<br/>
+# First Flight #4: Boss Bridge
 
-## Contest Details
+[//]: # (contest-details-open)
+
+# Contest Details
+
+## Prize Pool
 
 - Total Prize Pool:
   - High: 100XP
@@ -31,13 +33,22 @@ To ensure user safety, this first version of the bridge has a few security mecha
 
 We plan on launching `L1BossBridge` on both Ethereum Mainnet and ZKSync.
 
-## Token Compatibility
-
-For the moment, assume _only_ the `L1Token.sol` or copies of it will be used as tokens for the bridge. This means all other ERC20s and their [weirdness](https://github.com/d-xo/weird-erc20) is considered out-of-scope.
-
 ## On withdrawals
 
 The bridge operator is in charge of signing withdrawal requests submitted by users. These will be submitted on the L2 component of the bridge, not included here. Our service will validate the payloads submitted by users, checking that the account submitting the withdrawal has first originated a successful deposit in the L1 part of the bridge.
+
+## Actors/Roles
+
+- Bridge Owner: A centralized bridge owner who can:
+  - pause/unpause the bridge in the event of an emergency
+  - set `Signers` (see below)
+- Signer: Users who can "send" a token from L2 -> L1.
+- Vault: The contract owned by the bridge that holds the tokens.
+- Users: Users mainly only call `depositTokensToL2`, when they want to send tokens from L1 -> L2.
+
+[//]: # (contest-details-close)
+
+[//]: # (getting-started-open)
 
 # Getting Started
 
@@ -99,6 +110,10 @@ make slither
 make aderyn
 ```
 
+[//]: # (getting-started-close)
+
+[//]: # (scope-open)
+
 ## Audit Scope Details
 
 - Commit Hash: 07af21653ab3e8a8362bf5f63eb058047f562375
@@ -124,14 +139,13 @@ make aderyn
   - Tokens:
     - L1Token.sol (And copies, with different names & initial supplies)
 
-## Actors/Roles
+## Token Compatibility
 
-- Bridge Owner: A centralized bridge owner who can:
-  - pause/unpause the bridge in the event of an emergency
-  - set `Signers` (see below)
-- Signer: Users who can "send" a token from L2 -> L1.
-- Vault: The contract owned by the bridge that holds the tokens.
-- Users: Users mainly only call `depositTokensToL2`, when they want to send tokens from L1 -> L2.
+For the moment, assume _only_ the `L1Token.sol` or copies of it will be used as tokens for the bridge. This means all other ERC20s and their [weirdness](https://github.com/d-xo/weird-erc20) is considered out-of-scope.
+
+[//]: # (scope-close)
+
+[//]: # (known-issues-open)
 
 ## Known Issues
 
@@ -139,3 +153,5 @@ make aderyn
 - We are missing some zero address checks/input validation intentionally to save gas.
 - We have magic numbers defined as literals that should be constants.
 - Assume the `deployToken` will always correctly have an L1Token.sol copy, and not some [weird erc20](https://github.com/d-xo/weird-erc20)
+
+[//]: # (known-issues-close)
